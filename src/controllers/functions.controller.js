@@ -1,5 +1,6 @@
 import { getConnection, sql } from "../database/connection";
 
+
 export const getFunctions = async (req, res) => {
     const pool = await getConnection();
     const result = await pool
@@ -10,9 +11,11 @@ export const getFunctions = async (req, res) => {
 
 export const postNewFunction = async (req, res) => {
     const {name, description} = req.body;
+    
 
     const pool = await getConnection();
     const result = await pool
+
         .request()
         .input("name", name)
         .input("description", description)
