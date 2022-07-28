@@ -1,7 +1,10 @@
 import  express  from "express";
 import config from "./config";
+import funtionRouter from "./routes/functions.routes";
 import rolRouter from "./routes/roles.routes";
+import rol_functionRouter from "./routes/rol_function.routes";
 import usersRoutes from "./routes/users.routes";
+import user_rolRouter from "./routes/user_roles.routes";
 
 const app = express();
 
@@ -13,5 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false })); //Para recibir datos de forms html
 app.use(usersRoutes); //
 app.use(rolRouter); //
+app.use(funtionRouter); //
+app.use(user_rolRouter); //
+app.use(rol_functionRouter); //
 
 export default app;
