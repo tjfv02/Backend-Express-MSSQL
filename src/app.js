@@ -8,6 +8,7 @@ import rol_functionRouter from "./routes/rol_function.routes";
 import usersRoutes from "./routes/users.routes";
 import user_rolRouter from "./routes/user_roles.routes";
 import reportsRouter from "./routes/reports.routes";
+import loginRouter from "./routes/login.routes";
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(funtionRouter); //
 app.use(user_rolRouter); //
 app.use(rol_functionRouter); //
 app.use(reportsRouter); //
+app.use(loginRouter); //
 
 
 export default app;
