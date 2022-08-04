@@ -8,8 +8,8 @@ reportsRouter.get('/reports/user_rol/:idRol', validateIdRol, getAssignedRol);
 
 reportsRouter.get('/reports/functions_rol/:idRol', validateIdRol, getFunctionsRol);
 
-reportsRouter.get('/reports/functions_rol_user/:idUser', getFunctionsRolUser);
+reportsRouter.get('/reports/functions_rol_user/:idUser', validateIdUser, getFunctionsRolUser);
 
-reportsRouter.get('/reports/users_no_rol', validateIdUser, getUsersWithoutRol);
+reportsRouter.get('/reports/users_no_rol',  getUsersWithoutRol);
 
 export default reportsRouter;
