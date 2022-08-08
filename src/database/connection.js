@@ -11,7 +11,7 @@ const dbSettings = {
     }
 }
 
-export async function getConnection(){
+export async function getConnectionSQL(){
     try {
         const pool = await sql.connect(dbSettings);
         return pool
