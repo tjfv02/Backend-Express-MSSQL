@@ -31,8 +31,8 @@ export const login = async (req, res) => {
         if (!Object.entries(usuario).length === 0) {
             console.log('El usuario no existe');
             return res
-                .status(400)
-                .json({ errors: [{ msg: 'El Usuario no existe' }]});
+                //.status(400)
+                .json({ msg: "El Usuario no existe", intentos: " ", login : "false"});
             
         }
 
@@ -74,25 +74,25 @@ export const login = async (req, res) => {
 
 
                     return res
-                        .status(400)
-                        .json({ errors: [{ msg: 'Usuario Bloqueado, consulte a un Administrador', intentos: usuario.attempts, login : "false"}]});
+                        //.status(400)
+                        .json({ msg: "Usuario Bloqueado, consulte a un Administrador", intentos: usuario.attempts, login : "false"});
                 }
 
                 return res
-                    .status(400)
-                    .json({ errors: [{ msg: 'Credenciales inválidas', intentos: usuario.attempts, login : "false"}]});
+                    //.status(400)
+                    .json({ msg: 'Credenciales inválidas', intentos: usuario.attempts, login : "false"});
             }
 
             console.log('USUARIO CORRECTO');
             console.log(usuario);
 
-            res.json({login : "true"});
+            res.json({msg : "Inicio de Sesión con éxito", intentos: usuario.attempts, login : "true"});
             
         }else{
             console.log('Usuario INACTIVO');
             return res
-                .status(400)
-                .json({ errors: [{ msg: 'Usuario Bloqueado, consulte a un Administrador'}]});
+                //.status(400)
+                .json({ msg: "Usuario Bloqueado, consulte a un Administrador",intentos: usuario.attempts, login : "false"});
         }
 
 
